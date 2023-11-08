@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT,()=>{
     console.log(`Port is listening at ${PORT}`)
 })
-app.use(notFound)
-app.use(errorHandler)
 app.use(express.json())
 app.use('/api/user',router)
+app.use(notFound)
+app.use(errorHandler)

@@ -59,4 +59,20 @@ export const authUser = asyncHandler(async (req: Request, res: Response) => {
     throw new Error("Invalid Credentials");
   }
 });
+export const allUsers = asyncHandler(async (req:Request,res:Response) => {
+  const keyword = req.query.search && {
+    $or:[
+      {
+        name:{ $regex : req.query.search, $options : "i" }
+      },
+      {
+        email: { $regex : req.query.search, $options : "i" }
+      }
+    ]
+  }
+  if(keyword){
+    const users = await User.find(keyword);
+    res.send(users)
+  }
+});
 
