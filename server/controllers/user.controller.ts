@@ -24,11 +24,11 @@ export const registerUser = asyncHandler(
     });
     if (user) {
       res.status(201).json({
-        _id:user._id,
-        name:user.name,
-        email:user.email,
-        pic:user.pic,
-        token:generateToken(user._id)
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        pic: user.pic,
+        token: generateToken(user._id),
       });
     } else {
       res.status(400);
@@ -53,26 +53,32 @@ export const authUser = asyncHandler(async (req: Request, res: Response) => {
       email: user.email,
       pic: user.pic,
       token: generateToken(user._id),
-    })
+    });
   } else {
     res.status(400);
     throw new Error("Invalid Credentials");
   }
 });
-export const allUsers = asyncHandler(async (req:Request,res:Response) => {
-  const keyword = req.query.search && {
-    $or:[
-      {
-        name:{ $regex : req.query.search, $options : "i" }
-      },
-      {
-        email: { $regex : req.query.search, $options : "i" }
-      }
-    ]
-  }
-  if(keyword){
-    const users = await User.find(keyword);
-    res.send(users)
+export const allUsers = asyncHandler(async (req: Request, res: Response) => {
+  try {
+    const keyword = req.query.search && {
+      $or: [
+        {
+          name: { $regex: req.query.search, $options: "i" },
+        },
+        {
+          email: { $regex: req.query.search, $options: "i" },
+        },
+      ],
+    };
+    if (keyword) {
+      const users = await User.find(keyword).find({
+        _id: { $ne: req.body.user._id },
+      });
+      res.status(200).json({ users });
+    }
+  } catch (error) {
+    res.status(400);
+    throw new Error("User Not Found!!");
   }
 });
-
