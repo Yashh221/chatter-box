@@ -5,6 +5,7 @@ import connectDB from "./config/db";
 import { router } from './routes/userRoutes'
 import { notFound , errorHandler } from "./middlewares/errorMiddleware";
 import chatRouter from "./routes/chatRoutes";
+import messageRouter from "./routes/messageRoutes";
 dotenv.config({path:path.resolve(__dirname, './.env') })
 
 connectDB();
@@ -17,5 +18,6 @@ app.listen(PORT,()=>{
 app.use(express.json())
 app.use('/api/user',router)
 app.use('/api/chats',chatRouter)
+app.use('/api/message',messageRouter)
 app.use(notFound)
 app.use(errorHandler)

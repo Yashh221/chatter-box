@@ -1,7 +1,7 @@
 import mongoose, { Document, Schema } from "mongoose";
-
+import { UserDocument} from "./userModel";
 interface Message extends Document{
-    sender:mongoose.Schema.Types.ObjectId,
+    sender:mongoose.Schema.Types.ObjectId | UserDocument,
     content:string,
     chat:mongoose.Schema.Types.ObjectId
 }
