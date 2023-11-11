@@ -152,6 +152,8 @@ export const removeFromGroup = AsyncHandler(
       const { grpId, userId } = req.body;
       const updatedUsers = await Chat.findByIdAndUpdate(grpId, {
         $pull: { user: userId },
+      },{
+        new:true
       })
         .populate("user", "-password")
         .populate("groupAdmin", "-password");
