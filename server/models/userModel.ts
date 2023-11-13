@@ -2,8 +2,8 @@ import { NextFunction } from "express";
 import mongoose from "mongoose";
 import { Document, Schema } from "mongoose";
 import bcrypt from "bcryptjs";
-export interface UserDocument extends User, Document {}
-interface User extends Document {
+export interface UserDocument extends User,Document {}
+export interface User extends Document {
   name: string;
   email: string;
   password: string;
