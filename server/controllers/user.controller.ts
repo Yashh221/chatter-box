@@ -24,6 +24,7 @@ export const registerUser = asyncHandler(
     });
     if (user) {
       res.status(201).json({
+        message:"success",
         _id: user._id,
         name: user.name,
         email: user.email,
@@ -48,6 +49,7 @@ export const authUser = asyncHandler(async (req: Request, res: Response) => {
 
   if (user && (await user.isValidatePassword(password))) {
     res.status(200).json({
+      message:"success",
       _id: user._id,
       name: user.name,
       email: user.email,

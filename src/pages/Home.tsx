@@ -8,7 +8,7 @@ const Home = () => {
       <div className="hidden sm:w-[40%] bg-secondary h-full sm:flex justify-center items-center relative">
         <div className="flex items-center absolute w-[70%] h-[550px] bg-[#66a2ba] rounded-l-[10px] right-0 z-50">
           <div className="flex items-center w-full font-sans">
-            <span className="text-[110px] text-secondary font-bold p-2">
+            <span className="text-[110px] text-secondary font-bold pl-5 pr-2">
               CB
             </span>
             <span className="text-[25px] text-secondary font-bold pt-5">
