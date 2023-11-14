@@ -1,4 +1,4 @@
-import express, {Express } from "express";
+import express, { Express } from "express";
 import dotenv from 'dotenv'
 import path = require("path");
 import connectDB from "./config/db";
@@ -13,7 +13,7 @@ dotenv.config({path:path.resolve(__dirname, './.env') })
 connectDB();
 
 const app : Express = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 9000;
 const server = app.listen(PORT,()=>{
     console.log(`Port is listening at ${PORT}`)
 });
