@@ -8,6 +8,7 @@ import chatRouter from "./routes/chatRoutes";
 import messageRouter from "./routes/messageRoutes";
 import { Server, Socket } from "socket.io";
 import { User } from "./models/userModel";
+import cors from 'cors'
 dotenv.config({path:path.resolve(__dirname, './.env') })
 
 connectDB();
@@ -61,6 +62,7 @@ io.on("Connection",(socket : Socket)=>{
     })
 }),
 app.use(express.json())
+app.use(cors())
 app.use('/api/user',router)
 app.use('/api/chats',chatRouter)
 app.use('/api/message',messageRouter)
