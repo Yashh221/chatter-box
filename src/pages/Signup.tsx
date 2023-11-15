@@ -49,9 +49,8 @@ const Signup = () => {
         }
       );
       const data = response.data;
-      if(data.message === "success")
-      {
-        navigate("/login")
+      if (data.message === "success") {
+        navigate("/login");
       }
     } catch (error) {
       console.log(error);
@@ -120,22 +119,24 @@ const Signup = () => {
               onChange={handleFileChange}
               className="hidden"
             />
-            <div className="w-[400px] bg-transparent outline-none border-[1px] border-white rounded-lg px-3 py-3">
+            <div className="w-[400px] flex bg-transparent outline-none border-[1px] border-white rounded-lg px-3 py-3">
+              <div className="mx-auto my-auto text-lg">
+                {profilePicture && `${profilePicture.name}`}
+              </div>
               <button
-                className="p-2 text-lg font-semibold w-[150px] bg-[#66767c] rounded-[10px] tracking-wider mr-3"
+                className="p-2 px-5 text-lg font-semibold w-[150px] bg-[#66767c] flex justify-center rounded-[10px] tracking-wider ml-auto mr-3 shadow-3xl"
                 onClick={handleChooseFileClick}
               >
-                Choose File
+                <span className="mt-2 text-base">Choose File</span>
               </button>
-              {profilePicture && `${profilePicture.name}`}
             </div>
 
             <div>
               <button
-                className={`p-4 px-12 text-2xl font-semibold w-[250px] bg-[#66767c] rounded-[10px] tracking-wider ${HoverButton}`}
+                className={`p-3 px-12 text-xl font-semibold  flex justify-center items-center  w-[180px] bg-[#66767c] rounded-[10px] tracking-wider shadow-3xl ${HoverButton}`}
                 type="submit"
               >
-                Sign up
+                <span className="mt-2">Sign up</span>
               </button>
             </div>
           </div>

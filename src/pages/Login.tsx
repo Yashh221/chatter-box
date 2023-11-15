@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import HoverButton from "../styles/hoverButton";
 import { SlArrowLeft } from "react-icons/sl";
 import React, { ChangeEvent, FormEvent } from "react";
-import axios from 'axios';
+import axios from "axios";
 
 interface AuthUser {
   email: string;
@@ -31,9 +31,8 @@ const Login = () => {
         }
       );
       const data = response.data;
-      if(data.message === "success")
-      {
-        localStorage.setItem('token',data.token);
+      if (data.message === "success") {
+        localStorage.setItem("token", data.token);
         // navigate("/login")
       }
     } catch (error) {
@@ -88,10 +87,10 @@ const Login = () => {
             />
             <div>
               <button
-                className={`p-4 px-12 text-2xl font-semibold w-[250px] bg-[#66767c] rounded-[10px] tracking-wider ${HoverButton}`}
+                className={`p-3 px-12 text-xl font-semibold flex justify-center items-center w-[180px] bg-[#66767c] rounded-[10px] tracking-wider shadow-3xl ${HoverButton}`}
                 type="submit"
               >
-                Login
+                <span className="mt-2">Login</span>
               </button>
             </div>
           </div>

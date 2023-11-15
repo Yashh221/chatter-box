@@ -26,11 +26,11 @@ const Home = () => {
             <span className="text-xl">Chatting Simplified, Connections Amplified.</span>
           </div>
           <div>
-            <button className={`p-4 px-12 text-2xl font-semibold w-[250px] bg-[#66767c] rounded-[10px] tracking-wider ${HoverButton}`} onClick={()=>navigate("/signup")}>Sign up</button>
+            <button className={`p-3 px-12 text-xl font-semibold  flex justify-center items-center  w-[200px] bg-[#66767c] rounded-[10px] tracking-wider ${HoverButton} shadow-3xl`} onClick={()=>navigate("/signup")}><span className="mt-2">Sign up</span></button>
           </div>
           <div className="text-2xl font-semibold">OR</div>
           <div>
-          <button className={`p-4 px-12 text-2xl font-semibold w-[250px] bg-[#66767c] rounded-[10px] tracking-wider ${HoverButton}`} onClick={()=>navigate("/login")}>Login</button>
+          <button className={`p-3 px-12 text-xl font-semibold flex justify-center items-center w-[200px] bg-[#66767c] rounded-[10px] tracking-wider shadow-3xl ${HoverButton}`} onClick={()=>navigate("/login")}><span className="mt-2">Login</span></button>
           </div>
         </div>
       </div>
